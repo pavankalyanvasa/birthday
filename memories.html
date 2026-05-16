@@ -1,338 +1,191 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Story 💕</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;min-height:100%;font-family:'Nunito',sans-serif;background:#fff5fb;overflow-x:hidden;color:#5b2d6e}
-.blob-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.28;animation:blobFloat ease-in-out infinite}
-.b1{width:500px;height:500px;background:#ffb3c6;top:-150px;left:-100px;animation-duration:10s}
-.b2{width:400px;height:400px;background:#c084fc;bottom:-100px;right:-80px;animation-duration:12s;animation-delay:3s}
-.b3{width:350px;height:350px;background:#86efac;top:50%;left:40%;animation-duration:9s;animation-delay:1.5s}
-@keyframes blobFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-25px) scale(1.06)}}
-.floaties{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.floaty{position:absolute;animation:floatUp linear infinite;opacity:0}
-@keyframes floatUp{0%{transform:translateY(100vh);opacity:0}10%{opacity:0.7}90%{opacity:0.5}100%{transform:translateY(-80px);opacity:0}}
-
-/* PAGE LAYOUT */
-.page{position:relative;z-index:2;padding:40px 20px 120px;max-width:720px;margin:0 auto}
-
-/* HEADER */
-.page-header{text-align:center;margin-bottom:48px;animation:fadeDown 0.7s ease both}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-.page-header .emoji{font-size:3rem;display:block;margin-bottom:8px}
-.page-header h1{font-family:‘Pacifico’,cursive;font-size:clamp(1.8rem,5vw,2.6rem);color:#5b2d6e;margin-bottom:8px}
-.page-header p{font-size:1rem;color:#9d6aaa;font-weight:700;line-height:1.7}
-
-/* TIMELINE */
-.timeline{position:relative;padding-left:0}
-.timeline::before{content:’’;position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#ff9eb5,#c084fc,#86efac,#7dd3fc,#fde68a,#ff9eb5);border-radius:3px;transform:translateX(-50%)}
-
-/* MEMORY CARD */
-.memory{position:relative;margin-bottom:48px;display:flex;gap:0;animation:slideIn 0.6s ease both}
-.memory:nth-child(odd){flex-direction:row;padding-right:calc(50% + 24px)}
-.memory:nth-child(even){flex-direction:row-reverse;padding-left:calc(50% + 24px)}
-@keyframes slideIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-
-/* TIMELINE DOT */
-.memory::before{content:attr(data-emoji);position:absolute;left:50%;top:24px;transform:translateX(-50%);font-size:1.8rem;z-index:3;background:#fff;border:3px solid #ffd6e0;border-radius:50%;width:52px;height:52px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(192,100,200,0.25)}
-
-.mem-card{background:rgba(255,255,255,0.82);backdrop-filter:blur(16px);border-radius:24px;border:2px solid rgba(255,182,203,0.35);padding:22px 22px 18px;box-shadow:0 8px 40px rgba(192,100,200,0.12);transition:transform 0.3s,box-shadow 0.3s;cursor:pointer;width:100%}
-.mem-card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 50px rgba(192,100,200,0.22)}
-
-.mem-number{font-size:0.72rem;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#c084fc;margin-bottom:4px}
-.mem-title{font-family:‘Pacifico’,cursive;font-size:1.05rem;color:#5b2d6e;margin-bottom:8px;line-height:1.3}
-.mem-story{font-size:0.85rem;color:#9d6aaa;line-height:1.75;font-weight:600;margin-bottom:14px}
-
-/* PHOTO SLOT */
-.mem-photo{border-radius:16px;overflow:hidden;border:2px solid rgba(255,182,203,0.4);margin-bottom:10px;position:relative}
-.mem-photo img{width:100%;display:block;filter:grayscale(80%);transition:filter 0.5s ease}
-.mem-photo:hover img{filter:grayscale(0%)}
-.mem-photo-placeholder{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,#fce4ec,#e9d5ff);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#9d6aaa;font-size:0.8rem;font-weight:700;padding:20px;text-align:center}
-.mem-photo-placeholder .ph-icon{font-size:2.2rem}
-.color-hint{font-size:0.72rem;color:#c084fc;font-style:italic;margin-top:4px}
-
-/* VIDEO SLOT */
-.mem-video{border-radius:16px;overflow:hidden;border:2px solid rgba(255,182,203,0.4);margin-bottom:10px}
-.mem-video-placeholder{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#fde68a22,#fbbf2422);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#9d6aaa;font-size:0.8rem;font-weight:700;padding:20px;text-align:center;border:2px dashed rgba(251,191,36,0.4)}
-.mem-video video{width:100%;display:block;border-radius:14px}
-
-.mem-tag{display:inline-block;background:linear-gradient(135deg,#fce4ec,#e9d5ff);border-radius:50px;padding:4px 14px;font-size:0.72rem;font-weight:800;color:#7c3aed;margin-top:2px}
-
-/* FINAL SECTION */
-.final-section{background:rgba(255,255,255,0.85);backdrop-filter:blur(20px);border-radius:32px;border:2px solid rgba(255,182,203,0.45);padding:48px 40px 44px;text-align:center;margin-top:24px;box-shadow:0 20px 70px rgba(192,100,200,0.15)}
-.final-emoji{font-size:3rem;display:block;margin-bottom:12px;animation:bounce 2s ease-in-out infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.final-title{font-family:‘Pacifico’,cursive;font-size:clamp(1.6rem,5vw,2.4rem);color:#5b2d6e;margin-bottom:20px;line-height:1.3}
-.final-note{font-size:0.97rem;color:#7a4a8a;line-height:2;font-weight:700;margin-bottom:28px;white-space:pre-line}
-.final-divider{display:flex;align-items:center;gap:10px;margin:24px 0}
-.fdl{flex:1;height:2px;background:linear-gradient(90deg,transparent,rgba(192,132,252,0.4),transparent)}
-.signature{font-family:‘Pacifico’,cursive;font-size:1.2rem;color:#ff9eb5;margin-top:8px}
-.heart-burst{position:relative;height:70px;overflow:hidden;margin-top:8px}
-.hf{position:absolute;animation:floatHeart 3s ease-in-out forwards;opacity:0;pointer-events:none}
-@keyframes floatHeart{0%{opacity:0;transform:translateY(0) scale(0.7)}20%{opacity:1}100%{opacity:0;transform:translateY(-80px) scale(1.3)}}
-
-/* MOBILE */
-@media(max-width:600px){
-.timeline::before{left:28px}
-.memory{padding:0 0 0 68px !important;flex-direction:column !important}
-.memory::before{left:28px;top:20px;width:44px;height:44px;font-size:1.4rem}
-.mem-card{width:100%}
-}
-</style>
-
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="blob-bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
-<div class="floaties" id="floaties"></div>
 
-<div class="page">
+<div class="blob-bg">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+</div>
+<div class="floaties" id="floaties"></div>
+<div id="progressDots" class="progress-dots"></div>
+
+<div class="page-content">
+
   <div class="page-header">
-    <span class="emoji">📖</span>
-    <h1>Our Story</h1>
-    <p>8 years. Endless memories. One big love. 💕<br>Tap each memory to feel it again... (photos turn colour on hover 🎨)</p>
+    <span class="icon-big">📖</span>
+    <h1 class="page-title">Our Story</h1>
+    <p class="sub-text">8 years. Endless memories. One big love. 💕<br>Photos are black and white — hover to see them in colour 🎨</p>
   </div>
 
   <div class="timeline">
 
-```
-<!-- MEMORY 1 -->
-<div class="memory" data-emoji="🎬" style="animation-delay:0.1s">
-  <div class="mem-card">
-    <p class="mem-number">Chapter 01 · 2017</p>
-    <h3 class="mem-title">The Day We Met In Person</h3>
-    <div class="mem-photo">
-      <!-- Replace below div with: <img src="images/photo1.jpg" alt="The day we met"> -->
-      <div class="mem-photo-placeholder">
-        <span class="ph-icon">🎬</span>
-        <span>Add photo1.jpg here</span>
-        <span class="color-hint">Photo turns colour on hover ✨</span>
+    <!-- MEMORY 1 -->
+    <div class="memory" data-emoji="🎬">
+      <div class="mem-card">
+        <p class="label-text">Chapter 01 · Nov 2017</p>
+        <h3 class="mem-title">The Day We Met In Person</h3>
+        <div class="mem-photo">
+          <!-- TO ADD PHOTO: replace the div below with <img src="images/photo1.jpg" alt="The day we met"> -->
+          <div class="mem-photo-placeholder">
+            <span class="ph-icon">🎬</span>
+            <span>Add images/photo1.jpg</span>
+            <span class="color-hint">Hover to see in colour ✨</span>
+          </div>
+        </div>
+        <p class="mem-story">You came right in the middle of the Hello movie and you were NOT letting me take pictures 😤 I had literally skipped college to watch Nuvvu Naku Nachav or Nuvve Nuvve on TV since mom and dad were away. And then you walked in. Best distraction of my life. 🫠</p>
+        <span class="mem-tag">📍 The beginning of everything</span>
       </div>
     </div>
-    <p class="mem-story">You came in the middle of the Hello movie and you were NOT letting me take pictures 😤 Either Nuvvu Naku Nachav or Nuvve Nuvve was playing on TV... I had literally skipped college to watch it since mom and dad were away. And then you walked in. 🫠 Best distraction ever.</p>
-    <span class="mem-tag">📍 The beginning of everything</span>
-  </div>
-</div>
 
-<!-- MEMORY 2 -->
-<div class="memory" data-emoji="🤫" style="animation-delay:0.2s">
-  <div class="mem-card">
-    <p class="mem-number">Chapter 02</p>
-    <h3 class="mem-title">The Secret Selfie at Akka's Wedding</h3>
-    <div class="mem-photo">
-      <!-- Replace below div with: <img src="images/photo2.jpg" alt="Akka wedding selfie"> -->
-      <div class="mem-photo-placeholder">
-        <span class="ph-icon">🤫</span>
-        <span>Add photo2.jpg here</span>
-        <span class="color-hint">Photo turns colour on hover ✨</span>
+    <!-- MEMORY 2 -->
+    <div class="memory" data-emoji="🤫">
+      <div class="mem-card">
+        <p class="label-text">Chapter 02</p>
+        <h3 class="mem-title">The Secret Selfie at Akka Wedding</h3>
+        <div class="mem-photo">
+          <!-- TO ADD PHOTO: replace the div below with <img src="images/photo2.jpg" alt="Akka wedding selfie"> -->
+          <div class="mem-photo-placeholder">
+            <span class="ph-icon">🤫</span>
+            <span>Add images/photo2.jpg</span>
+            <span class="color-hint">Hover to see in colour ✨</span>
+          </div>
+        </div>
+        <p class="mem-story">The most tensed selfie ever taken 😅 Your uncle came and SAW us and my heart nearly stopped. I wore that black shirt you always wanted to see me in — bought it for 2000 rupees from Spykar at Tipsy Topsy. All for you. Every rupee worth it. 🖤</p>
+        <span class="mem-tag">🖤 You asked for black. I delivered.</span>
       </div>
     </div>
-    <p class="mem-story">The most tensed selfie ever taken 😅 Your uncle came and SAW us and my heart nearly stopped. I wore that black shirt you always wanted to see me in — bought it for 2000 rupees, Spykar brand, Tipsy Topsy. All for you. Worth every rupee. 🖤</p>
-    <span class="mem-tag">🖤 You asked for black. I delivered.</span>
-  </div>
-</div>
 
-<!-- MEMORY 3 -->
-<div class="memory" data-emoji="🏠" style="animation-delay:0.3s">
-  <div class="mem-card">
-    <p class="mem-number">Chapter 03</p>
-    <h3 class="mem-title">First Time at My Home</h3>
-    <div class="mem-photo">
-      <!-- Replace below div with: <img src="images/photo3.jpg" alt="First time at home"> -->
-      <div class="mem-photo-placeholder">
-        <span class="ph-icon">🏠</span>
-        <span>Add photo3.jpg here</span>
-        <span class="color-hint">Photo turns colour on hover ✨</span>
+    <!-- MEMORY 3 -->
+    <div class="memory" data-emoji="🏠">
+      <div class="mem-card">
+        <p class="label-text">Chapter 03</p>
+        <h3 class="mem-title">First Time at My Home</h3>
+        <div class="mem-photo">
+          <!-- TO ADD PHOTO: replace the div below with <img src="images/photo3.jpg" alt="First time at home"> -->
+          <div class="mem-photo-placeholder">
+            <span class="ph-icon">🏠</span>
+            <span>Add images/photo3.jpg</span>
+            <span class="color-hint">Hover to see in colour ✨</span>
+          </div>
+        </div>
+        <p class="mem-story">You came straight from college, walked into my room, looking so innocent and cute 🥺 And there I was looking like a complete rowdy 😮‍💨 Still one of my favourite memories. You in my space for the very first time. Everything felt different after that.</p>
+        <span class="mem-tag">🏠 First visit. Forever remembered.</span>
       </div>
     </div>
-    <p class="mem-story">You came straight from college, walked into my bedroom, looking so innocent and cute 🥺 And there I was looking like a complete rowdy 😮‍💨 Still one of my favourite memories. You in my space for the first time. Everything changed that day.</p>
-    <span class="mem-tag">🏠 First visit. Forever remembered.</span>
-  </div>
-</div>
 
-<!-- MEMORY 4 -->
-<div class="memory" data-emoji="🏖️" style="animation-delay:0.4s">
-  <div class="mem-card">
-    <p class="mem-number">Chapter 04</p>
-    <h3 class="mem-title">The Famous 5-Day Escape 😋</h3>
-    <div class="mem-photo">
-      <!-- Replace below div with: <img src="images/photo4.jpg" alt="5 days together"> -->
-      <div class="mem-photo-placeholder">
-        <span class="ph-icon">🏖️</span>
-        <span>Add photo4.jpg (collage) here</span>
-        <span class="color-hint">Add your beach collage ✨</span>
+    <!-- MEMORY 4 -->
+    <div class="memory" data-emoji="🏖️">
+      <div class="mem-card">
+        <p class="label-text">Chapter 04</p>
+        <h3 class="mem-title">The Famous 5-Day Escape 😋</h3>
+        <div class="mem-photo">
+          <!-- TO ADD PHOTO: replace the div below with <img src="images/photo4.jpg" alt="5 days together collage"> -->
+          <div class="mem-photo-placeholder">
+            <span class="ph-icon">🏖️</span>
+            <span>Add images/photo4.jpg (your collage)</span>
+            <span class="color-hint">Hover to see in colour ✨</span>
+          </div>
+        </div>
+        <p class="mem-story">You said 5 days coaching and came straight to me 😂 B.Tech done, no idea how to meet, but we figured it out. Temple in Ponnuru, eating outside together, just laughing and living like the happiest couple in the world. 5 days that felt like a whole lifetime. 😋</p>
+        <span class="mem-tag">🌊 5 days. A lifetime of memories.</span>
       </div>
     </div>
-    <p class="mem-story">You said "5 days coaching" and ran straight to me 😂 B.Tech done, no idea how to meet, but we figured it out. Temple in Ponnuru, eating outside, just laughing and living. 5 days that felt like we were the most normal, happiest couple in the world. 😋</p>
-    <span class="mem-tag">🌊 5 days. A lifetime of memories.</span>
-  </div>
-</div>
 
-<!-- MEMORY 5 -->
-<div class="memory" data-emoji="✈️" style="animation-delay:0.5s">
-  <div class="mem-card">
-    <p class="mem-number">Chapter 05</p>
-    <h3 class="mem-title">The Airport Goodbye 😭</h3>
-    <div class="mem-video">
-      <!-- Replace below div with: <video src="images/video1.mp4" controls style="width:100%;border-radius:14px"></video> -->
-      <div class="mem-video-placeholder">
-        <span style="font-size:2.2rem">🎬</span>
-        <span>Add video1.mp4 here</span>
-        <span style="font-size:0.7rem;color:#fbbf24;font-style:italic">Your cinematic goodbye moment 💛</span>
+    <!-- MEMORY 5 -->
+    <div class="memory" data-emoji="✈️">
+      <div class="mem-card">
+        <p class="label-text">Chapter 05</p>
+        <h3 class="mem-title">The Airport Goodbye 😭</h3>
+        <div class="mem-video">
+          <!-- TO ADD VIDEO: replace the div below with <video src="images/video1.mp4" controls></video> -->
+          <div class="mem-video-placeholder">
+            <span style="font-size:2.2rem">🎬</span>
+            <span>Add images/video1.mp4</span>
+            <span style="font-size:0.72rem;color:#fbbf24;font-style:italic">Your cinematic airport moment 💛</span>
+          </div>
+        </div>
+        <p class="mem-story">I was leaving to UK. You came to see me off. As you walked away, I was crying. You were crying. Then mavayya came and I started recording... and I just KNEW you would turn back. And you did. 🎬 That single moment? Pure cinema. It lives in my heart forever and always.</p>
+        <span class="mem-tag">✈️ You turned back. I will never forget.</span>
       </div>
     </div>
-    <p class="mem-story">I was leaving to UK. You came to see me off. And as you were walking away, I was crying. You were crying. Then mavayya came and I started recording... and I KNEW you would turn back. And you did. 🎬 That moment? Pure cinema. It lives in my heart forever.</p>
-    <span class="mem-tag">✈️ You turned back. I'll never forget.</span>
-  </div>
-</div>
 
-<!-- MEMORY 6 -->
-<div class="memory" data-emoji="🌍" style="animation-delay:0.6s">
-  <div class="mem-card">
-    <p class="mem-number">Chapter 06</p>
-    <h3 class="mem-title">UK → India → USA. Together Always.</h3>
-    <div class="mem-photo">
-      <!-- Replace below div with: <img src="images/photo6.jpg" alt="India meetings"> -->
-      <div class="mem-photo-placeholder">
-        <span class="ph-icon">🌍</span>
-        <span>Add photo6.jpg (collage) here</span>
-        <span class="color-hint">Your reunion moments collage ✨</span>
+    <!-- MEMORY 6 -->
+    <div class="memory" data-emoji="🌍">
+      <div class="mem-card">
+        <p class="label-text">Chapter 06</p>
+        <h3 class="mem-title">UK → India → USA. Always Together.</h3>
+        <div class="mem-photo">
+          <!-- TO ADD PHOTO: replace the div below with <img src="images/photo6.jpg" alt="Reunion moments"> -->
+          <div class="mem-photo-placeholder">
+            <span class="ph-icon">🌍</span>
+            <span>Add images/photo6.jpg (your collage)</span>
+            <span class="color-hint">Hover to see in colour ✨</span>
+          </div>
+        </div>
+        <p class="mem-story">Every trip back to India was for you. Every stolen moment between flights, visa runs, and video calls was worth it. Distance tried its absolute hardest. We tried harder. No ocean was ever big enough to keep us apart. 💪🌏</p>
+        <span class="mem-tag">🌍 Oceans crossed. Love never lost.</span>
       </div>
     </div>
-    <p class="mem-story">Every trip back to India was for you. Every moment stolen between flights and visa runs and video calls was worth it. Distance tried its hardest. We tried harder. No ocean was ever big enough to keep us apart. 💪🌏</p>
-    <span class="mem-tag">🌍 Oceans crossed. Love never lost.</span>
-  </div>
-</div>
 
-<!-- MEMORY 7 -->
-<div class="memory" data-emoji="💇" style="animation-delay:0.7s">
-  <div class="mem-card">
-    <p class="mem-number">Chapter 07</p>
-    <h3 class="mem-title">14 Months of Hair. Just For You.</h3>
-    <div class="mem-photo">
-      <!-- Replace below div with: <img src="images/photo7.jpg" alt="Long hair selfie"> -->
-      <div class="mem-photo-placeholder">
-        <span class="ph-icon">💇</span>
-        <span>Add photo7.jpg here</span>
-        <span class="color-hint">The famous WhatsApp DP photo ✨</span>
+    <!-- MEMORY 7 -->
+    <div class="memory" data-emoji="💇">
+      <div class="mem-card">
+        <p class="label-text">Chapter 07</p>
+        <h3 class="mem-title">The Long Hair Visit 🤫</h3>
+        <div class="mem-photo">
+          <!-- TO ADD PHOTO: replace the div below with <img src="images/photo7.jpg" alt="Long hair selfie"> -->
+          <div class="mem-photo-placeholder">
+            <span class="ph-icon">💇</span>
+            <span>Add images/photo7.jpg</span>
+            <span class="color-hint">The famous WhatsApp DP photo ✨</span>
+          </div>
+        </div>
+        <p class="mem-story">I had grown my hair long and you were absolutely obsessed — you badly wanted to see it and touch it in person before I cut it. So the moment I got the chance, I went straight to you. No detours. Took a selfie, cropped you out, made it my WhatsApp DP. Nobody knows you are right there in your cute pink frock. 🤫 Still my favourite picture.</p>
+        <span class="mem-tag">💗 Hidden in plain sight. Always together.</span>
       </div>
     </div>
-    <p class="mem-story">I had grown my hair long and you were absolutely obsessed with it 😄 You badly wanted to see it in person, touch it, before I cut it. So the moment I got the chance, I went straight to you — no detours, no waiting. Cropped you out of the selfie we took. Made it my WhatsApp DP. Nobody knows you are standing right beside me in that photo, in your cute pink frock. 🤫 Our little secret. Still my favourite picture.</p>
-    <span class="mem-tag">💗 Hidden in plain sight. Always together.</span>
-  </div>
-</div>
 
-<!-- MEMORY 8 -->
-<div class="memory" data-emoji="💍" style="animation-delay:0.8s">
-  <div class="mem-card">
-    <p class="mem-number">Chapter 08 · The Latest · The Greatest</p>
-    <h3 class="mem-title">Finally. We Got Married. 💍</h3>
-    <div class="mem-photo">
-      <!-- Replace below div with: <img src="images/photo8.jpg" alt="Wedding photo"> -->
-      <div class="mem-photo-placeholder">
-        <span class="ph-icon">💍</span>
-        <span>Add photo8.jpg here</span>
-        <span class="color-hint">Your wedding photo — make it colour! 🌈</span>
+    <!-- MEMORY 8 -->
+    <div class="memory" data-emoji="💍">
+      <div class="mem-card">
+        <p class="label-text">Chapter 08 · The Greatest Chapter</p>
+        <h3 class="mem-title">Finally. We Got Married. 💍</h3>
+        <div class="mem-photo">
+          <!-- TO ADD PHOTO: replace the div below with <img src="images/photo8.jpg" alt="Wedding photo"> -->
+          <div class="mem-photo-placeholder">
+            <span class="ph-icon">💍</span>
+            <span>Add images/photo8.jpg</span>
+            <span class="color-hint">Your wedding — make it full colour! 🌈</span>
+          </div>
+        </div>
+        <p class="mem-story">Both families said yes. The universe said yes. We always said yes. From childhood relatives to mardhal to 8 years of hiding, crying, crossing oceans — to THIS. Married. Official. Forever. I am in the USA waiting for you right now. You are the sole reason I got this done. Come soon, please. 🛫</p>
+        <span class="mem-tag">👑 Mrs. Bobby. Officially. Always.</span>
       </div>
     </div>
-    <p class="mem-story">Both families said yes. The universe said yes. We always said yes. From childhood relatives to mardhal to teasing each other to 8 years of hiding, crying, crossing oceans — to THIS. Married. Official. Forever. I am in the USA waiting for you. You are the sole reason I got this done. Come soon. 🛫</p>
-    <span class="mem-tag">👑 Mrs. Bobby. Officially. Always.</span>
-  </div>
-</div>
-```
 
   </div><!-- end timeline -->
 
-  <!-- FINAL LOVE NOTE -->
-
-  <div class="final-section" id="finalNote">
-    <span class="final-emoji">💌</span>
-    <h2 class="final-title">A Note From Your Bobby 💕</h2>
-    <div class="final-divider"><div class="fdl"></div><span>🌸</span><div class="fdl"></div></div>
-    <p class="final-note">8 years ago, a quiet little girl walked into my life as a relative, let me tease her endlessly, and somehow — somehow — never left.
-
-I teased you as a kid. I fell for you as a boy. I missed you as a man. I cried for you at airports. I grew my hair for you. I crossed oceans for you. I waited, and waited, and waited — because nothing worth having ever came easy.
-
-And now you are Mrs. Bobby. Officially. Finally.
-
-You are the most beautiful, most stubborn, most quietly strong person I have ever known. You came into my world and made every single ordinary moment feel like a scene from a movie.
-
-I am sitting here in the USA, counting the days until you are beside me again. This whole page — these memories, these stories, this little surprise — is just a tiny piece of what I feel for you every single day.
-
-Happy Birthday, my love. My mardhal. My best friend. My wife.
-
-Come soon. I miss you more than words. 🌸</p>
-<div class="final-divider"><div class="fdl"></div><span>💍</span><div class="fdl"></div></div>
-<p class="signature">Yours always & forever,<br>Muddula Mogudu — Mr. Pavan Kalyan 💗</p>
-<div class="heart-burst" id="hb"></div>
-
+  <div style="text-align:center;margin-top:40px;padding-bottom:40px">
+    <button class="btn-celebrate" onclick="window.location.href='finale.html'">
+      Read a letter from Bobby 💌
+    </button>
   </div>
 
-</div><!-- end page -->
+</div><!-- end page-content -->
 
+<script src="js/main.js"></script>
 <script>
-/* FLOATIES */
-(function() {
-  var items = ["🌸","💕","✨","🌷","💖","⭐","🦋","🎂","💫","🎀","💍","🥰"];
-  var f = document.getElementById("floaties");
-  for (var i = 0; i < 20; i++) {
-    var el = document.createElement("div"); el.className = "floaty";
-    el.textContent = items[Math.floor(Math.random() * items.length)];
-    el.style.left = (Math.random() * 100) + "%";
-    el.style.animationDuration = (8 + Math.random() * 10) + "s";
-    el.style.animationDelay = (Math.random() * 12) + "s";
-    el.style.fontSize = (0.9 + Math.random() * 1.4) + "rem";
-    f.appendChild(el);
-  }
-}());
-
-/* STAGGER memory cards */
-var memories = document.querySelectorAll(".memory");
-var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = "1";
-      entry.target.style.transform = "translateY(0)";
-    }
-  });
-}, { threshold: 0.15 });
-memories.forEach(function(m) {
-  m.style.opacity = "0";
-  m.style.transform = "translateY(40px)";
-  m.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-  observer.observe(m);
+document.addEventListener("DOMContentLoaded", function() {
+  initFloaties(["🌸","💕","✨","🌷","💖","⭐","🦋","🎂","💫","🎀","💍","🥰"]);
+  initDots(4, 2);
+  initMemoryObserver();
 });
-
-/* HEARTS on final note */
-var finalObs = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) { launchHearts(); finalObs.disconnect(); }
-  });
-}, { threshold: 0.3 });
-finalObs.observe(document.getElementById("finalNote"));
-
-function launchHearts() {
-  var hb = document.getElementById("hb");
-  var e = ["💗","💕","🌸","💖","✨","💓","🌷","💍","👑"];
-  var n = 0;
-  var t = setInterval(function() {
-    if (n++ > 24) { clearInterval(t); return; }
-    var h = document.createElement("span"); h.className = "hf";
-    h.textContent = e[Math.floor(Math.random() * e.length)];
-    h.style.left = (5 + Math.random() * 90) + "%";
-    h.style.bottom = "0"; h.style.fontSize = (1 + Math.random()) + "rem";
-    h.style.animationDelay = (Math.random() * 0.8) + "s";
-    h.style.animationDuration = (2.5 + Math.random() * 2) + "s";
-    hb.appendChild(h);
-    setTimeout(function() { h.remove(); }, 5000);
-  }, 200);
-}
 </script>
-
 </body>
 </html>

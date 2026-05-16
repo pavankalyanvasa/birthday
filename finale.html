@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Letter From Bobby 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+.envelope-icon { font-size: 4rem; display: block; margin-bottom: 10px; animation: envelopePop 1s cubic-bezier(0.34,1.56,0.64,1) both; }
+@keyframes envelopePop { from{opacity:0;transform:scale(0.5) rotate(-10deg)} to{opacity:1;transform:scale(1) rotate(0)} }
+.letter-from { font-size: 0.85rem; font-weight: 900; color: var(--purple); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 14px; }
+.letter-title { font-family: 'Pacifico', cursive; font-size: clamp(1.6rem,5vw,2.2rem); color: var(--text); margin-bottom: 24px; line-height: 1.3; }
+.letter-body {
+  background: rgba(255,255,255,0.6);
+  border-left: 4px solid var(--pink);
+  border-radius: 0 16px 16px 0;
+  padding: 24px 24px 24px 20px;
+  text-align: left;
+  margin-bottom: 28px;
+}
+.letter-body p { font-size: 0.97rem; color: var(--text-mid); line-height: 2.1; font-weight: 700; margin-bottom: 18px; }
+.letter-body p:last-child { margin-bottom: 0; }
+.letter-body p.highlight { color: var(--text); font-size: 1.02rem; }
+</style>
+</head>
+<body>
+
+<div class="blob-bg">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="blob b3"></div><div class="blob b4"></div>
+</div>
+<div class="floaties" id="floaties"></div>
+<div id="progressDots" class="progress-dots"></div>
+
+<div class="page-wrap" style="padding-top:40px">
+  <div class="finale-card" id="finaleCard">
+
+    <span class="envelope-icon">💌</span>
+    <p class="letter-from">A letter from Bobby</p>
+    <h2 class="letter-title">To my Devika, on her birthday 🌸</h2>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-heart">💗</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <div class="letter-body">
+      <p>8 years ago, a quiet little girl walked into my life as a relative — let me tease her endlessly as a kid, stayed silent through all of it, and somehow, somehow, never left. 🥺</p>
+
+      <p class="highlight">I teased you as a kid. I fell for you as a boy. I missed you as a man. I cried for you at airports. I crossed oceans for you. I waited, and waited, and waited — because nothing worth having ever comes easy.</p>
+
+      <p>You are the most beautiful, most quietly stubborn, most fiercely strong person I have ever known. You never made noise about how much you held. You just held it. And you held me too, from across every distance we ever had. 💪</p>
+
+      <p>I still think about that airport moment when you turned back. I knew you would. I knew it in my bones. That one second told me everything I ever needed to know about us. 🎬</p>
+
+      <p class="highlight">And now you are Mrs. Bobby. Officially. Finally. The journey from mardhal to married — 8 years, endless moments, two families, and one crazy love story — I would do every single bit of it again without a second thought.</p>
+
+      <p>I am sitting here in the USA right now, counting the days until you are beside me. This house, this life, this everything — it is all waiting for you. Come soon. Please. 🛫</p>
+
+      <p>Happy Birthday, my love. My mardhal. My best friend. My wife. Today and every day after. 🌸💍</p>
+    </div>
+
+    <div class="divider">
+      <div class="divider-line"></div>
+      <span class="divider-heart">💍</span>
+      <div class="divider-line"></div>
+    </div>
+
+    <p class="signature">
+      Yours always and forever,<br>
+      Muddula Mogudu 💗<br>
+      Mr. Pavan Kalyan
+    </p>
+
+    <div class="heart-burst" id="hb"></div>
+
+  </div>
+</div>
+
+<div class="flower-strip">
+  <div class="grass"></div>
+  <div class="flower" style="left:5%;animation-delay:0s">🌸</div>
+  <div class="flower" style="left:14%;animation-delay:0.4s">💕</div>
+  <div class="flower" style="left:24%;animation-delay:0.7s">🌺</div>
+  <div class="flower" style="left:35%;animation-delay:0.2s">🌸</div>
+  <div class="flower" style="left:46%;animation-delay:0.9s">💍</div>
+  <div class="flower" style="left:56%;animation-delay:0.5s">🌼</div>
+  <div class="flower" style="left:66%;animation-delay:1.1s">🌷</div>
+  <div class="flower" style="left:76%;animation-delay:0.1s">🌸</div>
+  <div class="flower" style="left:86%;animation-delay:0.6s">💗</div>
+  <div class="flower" style="left:94%;animation-delay:0.3s">🌼</div>
+</div>
+
+<script src="js/main.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  initFloaties(["🌸","💕","✨","🌷","💖","💍","🦋","💌","💫","🎀","💗","👑"]);
+  initDots(4, 3);
+  initFinaleHearts("finaleCard");
+});
+</script>
+</body>
+</html>

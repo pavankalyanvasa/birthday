@@ -1,145 +1,132 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Who are you? 🌸</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--pink:#ff9eb5;--purple:#c084fc;--yellow:#fde68a;--mint:#86efac;--sky:#7dd3fc;--bg:#fff5fb;--text:#5b2d6e;--text-soft:#9d6aaa}
-html,body{width:100%;min-height:100%;font-family:'Nunito',sans-serif;background:var(--bg);overflow-x:hidden;color:var(--text)}
-.blob-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:0.35;animation:blobFloat ease-in-out infinite}
-.b1{width:400px;height:400px;background:#ffb3c6;top:-100px;left:-100px;animation-duration:8s}
-.b2{width:350px;height:350px;background:#c084fc;top:30%;right:-80px;animation-duration:10s;animation-delay:2s}
-.b3{width:300px;height:300px;background:#86efac;bottom:-80px;left:20%;animation-duration:9s;animation-delay:1s}
-.b4{width:250px;height:250px;background:#7dd3fc;bottom:20%;right:10%;animation-duration:11s;animation-delay:3s}
-.b5{width:200px;height:200px;background:#fde68a;top:50%;left:40%;animation-duration:7s;animation-delay:1.5s}
-@keyframes blobFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.08)}}
-.floaties{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.floaty{position:absolute;animation:floatDrift linear infinite;opacity:0}
-@keyframes floatDrift{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:0.8}90%{opacity:0.6}100%{transform:translateY(-100px) rotate(360deg);opacity:0}}
-.container{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;position:relative;z-index:2}
-.card{background:rgba(255,255,255,0.78);backdrop-filter:blur(20px);border-radius:32px;border:2px solid rgba(255,182,203,0.4);padding:50px 44px 44px;max-width:520px;width:100%;text-align:center;box-shadow:0 20px 80px rgba(192,100,200,0.15),0 0 0 1px rgba(255,255,255,0.8) inset;animation:cardPop 0.7s cubic-bezier(0.34,1.56,0.64,1) both}
-@keyframes cardPop{from{opacity:0;transform:scale(0.8) translateY(30px)}to{opacity:1;transform:scale(1) translateY(0)}}
-.card.wiggle{animation:wiggle 0.5s ease both}
-@keyframes wiggle{0%{transform:rotate(0)}20%{transform:rotate(-3deg)}40%{transform:rotate(3deg)}60%{transform:rotate(-2deg)}80%{transform:rotate(2deg)}100%{transform:rotate(0)}}
-.emoji-big{font-size:3.5rem;display:block;margin-bottom:8px;animation:bounce 2s ease-in-out infinite}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-h1{font-family:'Pacifico',cursive;font-size:clamp(1.8rem,5vw,2.4rem);color:var(--text);margin-bottom:8px;line-height:1.2}
-.sub{font-size:1rem;color:var(--text-soft);margin-bottom:28px;line-height:1.7;font-weight:600}
-.rxn{background:linear-gradient(135deg,#fff0f5,#f3e8ff);border:2px solid rgba(192,132,252,0.3);border-radius:20px;padding:14px 18px;margin:0 0 20px;font-size:0.95rem;color:var(--text);line-height:1.7;font-weight:700;display:none;animation:popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both}
-.rxn.show{display:block}
-@keyframes popIn{from{opacity:0;transform:scale(0.85)}to{opacity:1;transform:scale(1)}}
-input{width:100%;padding:16px 20px;border-radius:50px;border:2.5px solid rgba(255,158,181,0.5);background:rgba(255,255,255,0.9);font-family:'Nunito',sans-serif;font-size:1rem;font-weight:700;color:var(--text);text-align:center;outline:none;transition:all 0.2s;box-shadow:0 4px 16px rgba(192,100,200,0.1);margin-bottom:16px}
-input:focus{border-color:var(--purple);box-shadow:0 4px 20px rgba(192,132,252,0.3)}
-input::placeholder{color:var(--text-soft);font-weight:600}
-.btn{display:inline-block;width:100%;background:linear-gradient(135deg,#ff9eb5,#c084fc);color:#fff;border:none;border-radius:50px;padding:16px 40px;font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;cursor:pointer;letter-spacing:0.03em;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 8px 28px rgba(192,100,200,0.4);margin-top:4px}
-.btn:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 14px 40px rgba(192,100,200,0.5)}
-.btn:active{transform:scale(0.97)}
-.hint{font-size:0.82rem;color:var(--text-soft);margin-top:14px;font-weight:700;opacity:0;transition:opacity 0.5s}
-.hint.show{opacity:1}
-.star{position:absolute;pointer-events:none;animation:starPop 0.6s ease forwards;font-size:1.2rem}
-@keyframes starPop{0%{opacity:1;transform:scale(0) translateY(0)}100%{opacity:0;transform:scale(1.5) translateY(-40px)}}
-</style>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="blob-bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div><div class="blob b5"></div></div>
+
+<div class="blob-bg">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="blob b3"></div><div class="blob b4"></div>
+</div>
 <div class="floaties" id="floaties"></div>
-<div class="container">
+
+<div id="progressDots" class="progress-dots"></div>
+
+<div class="page-wrap">
   <div class="card" id="card">
-    <span class="emoji-big">🔐</span>
-    <h1>Heyyy! Who are you?</h1>
-    <p class="sub">This is a very secret, very special place.<br>You need the passcode to enter! 🌸</p>
+    <span class="icon-big">🔐</span>
+    <h1 class="page-title">Heyyy! Who are you?</h1>
+    <p class="sub-text">This is a very secret, very special place.<br>You need the passcode to enter! 🌸</p>
     <div class="rxn" id="rxn"></div>
-    <input type="text" id="passInput" placeholder="Type your name here..." autocomplete="off" />
-    <button class="btn" onclick="checkPass()">Let me in! ✨</button>
+    <input type="text" id="passInput" class="text-input" placeholder="Type your name here..." autocomplete="off" />
+    <button class="btn-primary" onclick="checkPass()">Let me in! ✨</button>
     <p class="hint" id="hint">Hint: Think about who you are to someone called Bobby... 💍</p>
   </div>
 </div>
+
+<script src="js/main.js"></script>
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+  initFloaties(["🌸","💕","✨","🌷","💖","⭐","🦋","🌈","💫","🎀","🐣","🍬"]);
+  initDots(4, 0);
+});
+
 var attempts = 0;
-var wrongReplies = [
-  ["Hmm... Devika? 🤔", "That name sounds familiar but nope! I don't know any Devika here. Try again! 😇"],
-  ["Devika who?? 🙈", "I only let ONE person in here and her name is a little more official 👀 Think again!"],
-  ["Interesting... 🧐", "You're getting warmer... actually no, ice cold 🥶 Think about Bobby. What are you to Bobby?"],
-  ["Still not it! 😂", "Okay hint time. You are MARRIED to someone very handsome. What does that make you? 💍"],
-  ["WRONG AGAIN!! 😤💕", "B - O - B - B - Y. Bobby. His. Wife. Put it together babe! 🫶"],
-  ["Babe come ON 😭😭", "You literally ARE the answer!! Mrs... Mrs... MRSSSSS??? 🥹"],
-  ["I am crying 😂", "8 years together and you cannot figure this out?? MRS. BOBBY. TYPE IT. 💗"],
-  ["SEVEN TRIES 😵", "Bobby is going to find out you failed your own entrance exam 💀 MRS BOBBY!!!"]
-];
+var emptyAttempts = 0;
+
 var emptyReplies = [
   ["Hey!! 🚫", "You cannot sneak in with nothing! No cheating allowed here, type something! 😤"],
   ["Empty box, empty entry! 🙅", "The door does not open itself! Who ARE you? Type it! 😂"],
   ["Nice try!! 🫠", "Blank is not a password babe. Put SOMETHING in that box! 🌸"],
-  ["STILL empty?? 😭", "I am begging you. Just type. Anything. Well... not anything. Type your NAME! 💕"]
+  ["STILL empty?? 😭", "I am begging you. Just type. Anything. Well not anything. Type your NAME! 💕"]
 ];
-var emptyAttempts = 0;
+
+function getWrongReply(name) {
+  var n = name.charAt(0).toUpperCase() + name.slice(1);
+  var low = name.toLowerCase().trim();
+
+  if (low === "devika" || low === "devi") {
+    var devReplies = [
+      ["Devika? Devika who? 🤔", "I know a Devika... but she goes by a much more official title around here. Think harder! 👀"],
+      ["Hmm " + n + "... 🙈", "That name rings a bell but that is NOT the password! Who are you to Bobby? 💍"],
+      ["Okay " + n + " listen 😂", "You ARE the right person but wrong name! You are not just Devika anymore, are you? 😏"],
+      ["DEVIKA. 😭", "You are so close and so far at the same time!! You have a title now! Use it!! 🌸"]
+    ];
+    return devReplies[Math.min(attempts, devReplies.length - 1)];
+  }
+  if (low === "bujjamma" || low === "bujji") {
+    return ["Bujjamma!! 🥺😂", "Aww that is the cutest name ever but still NOT the password! Bobby needs your official title here! 👑💍"];
+  }
+  if (low === "pondati" || low === "pondatti") {
+    return ["Pondati!! 😂💕", "Okay that is technically correct but Bobby wants the English version! Think Mrs. something... 😏"];
+  }
+  if (low === "wife" || low === "your wife" || low === "his wife") {
+    return ["Whose wife though?? 👀", "You are on the right track!! Now put a NAME with that! Whose wife are you exactly? 😏💍"];
+  }
+  if (low === "mrs" || low === "mrs.") {
+    return ["Mrs... Mrs WHO?? 🤭", "You are SO close!! Mrs. + ??? Fill in the blank! It is a nickname. A very cute one. 😄💕"];
+  }
+  if (low === "pavan" || low === "pavan kalyan") {
+    return ["That is Bobby real name! 😂", "But this page wants to know who YOU are, not who he is! Try again! 🌸"];
+  }
+  if (low === "bobby") {
+    return ["Bobby is the one WHO MADE THIS PAGE! 😤😂", "I need to know who YOU are! Are you Bobby wife? 💍"];
+  }
+  if (low.length <= 2) {
+    return ["That is barely a word!! 😭", "I need more than just " + n + " to let you in! Who are you really? 🌸"];
+  }
+  var fallbacks = [
+    [n + "? Never heard of them! 🤷", "Only one person is allowed in here and " + n + " is not on the list! Who are you to Bobby? 💍"],
+    ["Hmm " + n + "... 🧐", "Nope! That name is not in my system. Think about your relationship with Bobby! 💕"],
+    [n + " who?? 😂", "I checked the guest list three times. No " + n + " here! Try your official Bobby title! 👑"],
+    ["Still " + n + "?? 😤", "Babe. Bobby. Wife. Put it together!! 🌸💍"]
+  ];
+  return fallbacks[Math.min(attempts, fallbacks.length - 1)];
+}
+
 function checkPass() {
   var raw = document.getElementById("passInput").value.trim();
+  var rxn = document.getElementById("rxn");
+  var card = document.getElementById("card");
+
   if (raw === "") {
-    var card = document.getElementById("card");
     card.classList.remove("wiggle"); void card.offsetWidth; card.classList.add("wiggle");
-    var r = emptyReplies[Math.min(emptyAttempts, emptyReplies.length - 1)];
-    var rxn = document.getElementById("rxn");
-    rxn.innerHTML = "<strong>" + r[0] + "</strong><br>" + r[1];
+    var er = emptyReplies[Math.min(emptyAttempts, emptyReplies.length - 1)];
+    rxn.innerHTML = "<strong>" + er[0] + "</strong><br>" + er[1];
     rxn.classList.add("show");
     emptyAttempts++;
-    spawnStars();
+    spawnStars("card");
     return;
   }
-  var input = raw.toLowerCase().replace(/[^a-z\s]/g,"").trim();
-  var accepted = ["mrs bobby","mrs  bobby","mrsbobby","bobbys wife","bobby wife","bobby s wife","mrs pavan","pavans wife","pavan wife"];
-  var ok = accepted.indexOf(input) !== -1 || (input.indexOf("bobby") !== -1 && (input.indexOf("mrs") !== -1 || input.indexOf("wife") !== -1)) || (input.indexOf("pavan") !== -1 && input.indexOf("wife") !== -1);
-  if (ok) { success(); return; }
-  var card = document.getElementById("card");
+
+  var input = raw.toLowerCase().replace(/[^a-z\s]/g, "").trim();
+  var ok = (input.indexOf("bobby") !== -1 && (input.indexOf("mrs") !== -1 || input.indexOf("wife") !== -1))
+         || (input.indexOf("pavan") !== -1 && input.indexOf("wife") !== -1)
+         || input === "mrsbobby" || input === "mrs bobby";
+
+  if (ok) {
+    card.innerHTML = "<span class='icon-big'>🥳</span><h1 class='page-title'>MRS. BOBBY!!</h1><p class='sub-text' style='color:#c084fc;font-size:1.1rem;margin-bottom:0'>YESSS!! I knew it was you!!<br>Welcome, welcome, WELCOME!! 🎉💕<br><br>Taking you somewhere very special...</p>";
+    setTimeout(function() { window.location.href = "welcome.html"; }, 2800);
+    return;
+  }
+
   card.classList.remove("wiggle"); void card.offsetWidth; card.classList.add("wiggle");
-  var r = wrongReplies[Math.min(attempts, wrongReplies.length - 1)];
-  var rxn = document.getElementById("rxn");
+  var r = getWrongReply(raw);
   rxn.innerHTML = "<strong>" + r[0] + "</strong><br>" + r[1];
   rxn.classList.add("show");
   attempts++;
   if (attempts >= 2) document.getElementById("hint").classList.add("show");
-  spawnStars();
+  spawnStars("card");
 }
-function success() {
-  var card = document.getElementById("card");
-  card.innerHTML = "<span class='emoji-big'>🥳</span><h1>MRS. BOBBY!!</h1><p class='sub' style='color:#c084fc;font-size:1.1rem;margin-bottom:0'>YESSS!! I knew it was you!!<br>Welcome, welcome, WELCOME!! 🎉💕<br><br>Taking you somewhere very special...</p>";
-  setTimeout(function() { window.location.href = "welcome.html"; }, 2800);
-}
-function spawnStars() {
-  var card = document.getElementById("card");
-  var emojis = ["💔","😭","🙈","❌","😤","💀","🫠","😂"];
-  for (var i = 0; i < 5; i++) {
-    (function(idx) {
-      setTimeout(function() {
-        var s = document.createElement("span"); s.className = "star";
-        s.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-        s.style.left = (15 + Math.random() * 70) + "%";
-        s.style.top = (10 + Math.random() * 50) + "%";
-        card.appendChild(s);
-        setTimeout(function() { s.remove(); }, 700);
-      }, idx * 80);
-    })(i);
-  }
-}
-document.getElementById("passInput").addEventListener("keydown", function(e) { if (e.key === "Enter") checkPass(); });
-(function() {
-  var items = ["🌸","💕","✨","🌷","💖","⭐","🦋","🌈","💫","🎀","🐣","🍬"];
-  var f = document.getElementById("floaties");
-  for (var i = 0; i < 20; i++) {
-    var el = document.createElement("div"); el.className = "floaty";
-    el.textContent = items[Math.floor(Math.random() * items.length)];
-    el.style.left = (Math.random() * 100) + "%";
-    el.style.animationDuration = (8 + Math.random() * 10) + "s";
-    el.style.animationDelay = (Math.random() * 12) + "s";
-    el.style.fontSize = (1 + Math.random() * 1.5) + "rem";
-    f.appendChild(el);
-  }
-}());
+
+document.getElementById("passInput").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") checkPass();
+});
 </script>
 </body>
 </html>

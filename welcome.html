@@ -1,148 +1,100 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Mrs Bobby 🎂</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;min-height:100%;font-family:'Nunito',sans-serif;background:#fff5fb;overflow-x:hidden;color:#5b2d6e}
-.blob-bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:0.4;animation:blobFloat ease-in-out infinite}
-.b1{width:500px;height:500px;background:#ffb3c6;top:-150px;left:-100px;animation-duration:9s}
-.b2{width:400px;height:400px;background:#c084fc;bottom:-100px;right:-80px;animation-duration:11s;animation-delay:2s}
-.b3{width:350px;height:350px;background:#86efac;top:40%;left:50%;animation-duration:8s;animation-delay:1s}
-.b4{width:280px;height:280px;background:#fde68a;top:20%;right:10%;animation-duration:10s;animation-delay:3s}
-@keyframes blobFloat{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-25px) scale(1.06)}}
-.floaties{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
-.floaty{position:absolute;animation:floatUp linear infinite;opacity:0}
-@keyframes floatUp{0%{transform:translateY(100vh) rotate(0deg);opacity:0}10%{opacity:0.9}90%{opacity:0.7}100%{transform:translateY(-80px) rotate(360deg);opacity:0}}
-.confetti-piece{position:fixed;width:10px;height:10px;top:-10px;animation:confettiFall linear infinite;z-index:1;pointer-events:none;border-radius:2px}
-@keyframes confettiFall{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(110vh) rotate(720deg);opacity:0}}
-
-.page{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 20px 80px;position:relative;z-index:2;text-align:center}
-
-/* TITLE CARD */
-.title-card{background:rgba(255,255,255,0.8);backdrop-filter:blur(24px);border-radius:36px;border:2px solid rgba(255,182,203,0.5);padding:56px 48px 48px;max-width:600px;width:100%;box-shadow:0 24px 80px rgba(192,100,200,0.18),0 0 0 1px rgba(255,255,255,0.9) inset;animation:grandEntrance 1s cubic-bezier(0.34,1.56,0.64,1) both}
-@keyframes grandEntrance{from{opacity:0;transform:scale(0.7) translateY(40px)}to{opacity:1;transform:scale(1) translateY(0)}}
-
-.crown{font-size:4rem;display:block;margin-bottom:4px;animation:crownBounce 1.5s ease-in-out infinite}
-@keyframes crownBounce{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-15px) rotate(5deg)}}
-
-.hey-text{font-size:1.1rem;font-weight:800;color:#c084fc;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px;animation:fadeIn 0.5s 0.3s ease both}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-.birthday-title{font-family:‘Pacifico’,cursive;font-size:clamp(2.2rem,7vw,3.8rem);color:#5b2d6e;line-height:1.15;margin-bottom:6px;animation:titleSlam 0.7s 0.2s cubic-bezier(0.34,1.56,0.64,1) both}
-@keyframes titleSlam{from{opacity:0;transform:scale(1.3)}to{opacity:1;transform:scale(1)}}
-
-.name-title{font-family:‘Pacifico’,cursive;font-size:clamp(2rem,6vw,3.2rem);background:linear-gradient(135deg,#ff9eb5,#c084fc,#fbbf24);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:titleSlam 0.7s 0.4s cubic-bezier(0.34,1.56,0.64,1) both;margin-bottom:20px}
-
-.divider{display:flex;align-items:center;gap:12px;margin:20px 0}
-.divider-line{flex:1;height:2px;background:linear-gradient(90deg,transparent,rgba(192,132,252,0.4),transparent)}
-.divider-heart{font-size:1.2rem;animation:pulse 1.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
-
-.welcome-msg{font-size:1.05rem;color:#9d6aaa;line-height:1.9;font-weight:700;margin-bottom:32px;animation:fadeIn 0.5s 0.6s ease both}
-
-.years-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#fde68a,#fbbf24);border-radius:50px;padding:10px 24px;font-size:0.9rem;font-weight:800;color:#7c4a00;margin-bottom:32px;box-shadow:0 4px 20px rgba(251,191,36,0.4);animation:fadeIn 0.5s 0.7s ease both}
-
-.btn-celebrate{display:inline-block;background:linear-gradient(135deg,#ff9eb5 0%,#c084fc 50%,#7dd3fc 100%);background-size:200% 200%;color:#fff;border:none;border-radius:50px;padding:18px 52px;font-family:‘Nunito’,sans-serif;font-size:1.1rem;font-weight:900;cursor:pointer;letter-spacing:0.04em;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 10px 36px rgba(192,100,200,0.45);animation:fadeIn 0.5s 0.9s ease both,gradientShift 3s ease infinite}
-@keyframes gradientShift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.btn-celebrate:hover{transform:translateY(-4px) scale(1.05);box-shadow:0 18px 50px rgba(192,100,200,0.55)}
-.btn-celebrate:active{transform:scale(0.97)}
-
-/* BOTTOM ANIMATION STRIP */
-.anim-strip{position:fixed;bottom:0;left:0;right:0;height:80px;overflow:hidden;z-index:3;pointer-events:none}
-.grass{position:absolute;bottom:0;left:0;right:0;height:30px;background:linear-gradient(to top,#86efac,#4ade80);border-radius:50% 50% 0 0 / 20px 20px 0 0}
-.flower{position:absolute;bottom:20px;font-size:1.6rem;animation:sway 3s ease-in-out infinite}
-@keyframes sway{0%,100%{transform:rotate(-8deg) translateY(0)}50%{transform:rotate(8deg) translateY(-5px)}}
+.welcome-card {
+  background: rgba(255,255,255,0.82);
+  backdrop-filter: blur(24px);
+  border-radius: 36px;
+  border: 2px solid rgba(255,182,203,0.5);
+  padding: 56px 48px 48px;
+  max-width: 600px; width: 100%;
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(192,100,200,0.18), 0 0 0 1px rgba(255,255,255,0.9) inset;
+  animation: cardPop 1s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.crown { font-size: 4rem; display: block; margin-bottom: 6px; animation: crownBounce 1.5s ease-in-out infinite; }
+@keyframes crownBounce { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-16px) rotate(5deg)} }
+.from-label { font-size: 0.85rem; font-weight: 900; color: var(--purple); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+.welcome-msg { font-size: 1rem; color: var(--text-soft); line-height: 1.95; font-weight: 700; margin-bottom: 30px; }
+.missing-you { background: linear-gradient(135deg,#fff0f5,#f3e8ff); border: 2px solid rgba(192,132,252,0.25); border-radius: 20px; padding: 18px 22px; margin-bottom: 28px; font-size: 0.92rem; color: var(--text-mid); line-height: 1.85; font-weight: 700; }
 </style>
-
 </head>
 <body>
-<div class="blob-bg"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="blob b4"></div></div>
+
+<div class="blob-bg">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="blob b3"></div><div class="blob b4"></div>
+</div>
 <div class="floaties" id="floaties"></div>
 <div id="confettiContainer"></div>
+<div id="progressDots" class="progress-dots"></div>
 
-<div class="page">
-  <div class="title-card">
+<div class="page-wrap">
+  <div class="welcome-card">
     <span class="crown">👑</span>
-    <p class="hey-text">From Bobby, with all his heart 💌</p>
-    <h1 class="birthday-title">Happy Birthday,</h1>
-    <h1 class="name-title">Mrs. Bobby! 🎂</h1>
+    <p class="from-label">From Bobby, with all his heart 💌</p>
+
+    <h1 class="page-title">Happy Birthday,</h1>
+    <h1 class="page-title gradient" style="margin-bottom:20px">Mrs. Bobby! 🎂</h1>
+
     <div class="divider">
       <div class="divider-line"></div>
       <span class="divider-heart">💖</span>
       <div class="divider-line"></div>
     </div>
+
     <p class="welcome-msg">
       Hey Devika!! 🌸<br><br>
       Happy Birthday to the most beautiful,<br>
-      most quietly stubborn, most loved girl<br>
-      in my entire world. 💕<br><br>
-      I made this whole thing for you sitting<br>
-      here in the USA, missing you every single day.<br>
-      The house feels too quiet without you.<br>
-      I cannot wait for the day you are finally here. 🛫<br><br>
-      But today is YOUR day. So smile big.<br>
-      Bobby is celebrating you from across the ocean. 🌊💗
+      most quietly strong, most loved girl<br>
+      in Bobby entire universe. 💕<br><br>
+      May this year bring you everything<br>
+      you deserve — joy, peace, and all the<br>
+      warmth in the world. 🌈✨
     </p>
-    <div class="years-badge">🎊 8+ years of us! Nov 21, 2017 → Forever 🎊</div>
-    <br>
+
+    <div class="missing-you">
+      💭 Bobby made this whole thing sitting in the USA,<br>
+      missing you every single day.<br>
+      The house feels too quiet without you.<br>
+      Cannot wait for the day you are finally here. 🛫💗
+    </div>
+
+    <div class="badge">🎊 8+ wonderful years! Nov 21, 2017 → Forever 🎊</div>
+
     <button class="btn-celebrate" onclick="window.location.href='memories.html'">
-      Let's relive our memories!! 🥳🎉
+      Let us relive our memories!! 🥳🎉
     </button>
   </div>
 </div>
 
-<div class="anim-strip">
+<div class="flower-strip">
   <div class="grass"></div>
-  <div class="flower" style="left:5%;animation-delay:0s">🌸</div>
-  <div class="flower" style="left:12%;animation-delay:0.3s">🌼</div>
-  <div class="flower" style="left:22%;animation-delay:0.6s">🌺</div>
-  <div class="flower" style="left:33%;animation-delay:0.2s">🌸</div>
-  <div class="flower" style="left:45%;animation-delay:0.8s">🦋</div>
-  <div class="flower" style="left:55%;animation-delay:0.4s">🌼</div>
-  <div class="flower" style="left:65%;animation-delay:1s">🌷</div>
-  <div class="flower" style="left:75%;animation-delay:0.1s">🌸</div>
-  <div class="flower" style="left:85%;animation-delay:0.7s">🌺</div>
-  <div class="flower" style="left:93%;animation-delay:0.5s">🌼</div>
+  <div class="flower" style="left:4%;animation-delay:0s">🌸</div>
+  <div class="flower" style="left:11%;animation-delay:0.3s">🌼</div>
+  <div class="flower" style="left:20%;animation-delay:0.6s">🌺</div>
+  <div class="flower" style="left:30%;animation-delay:0.2s">🌸</div>
+  <div class="flower" style="left:42%;animation-delay:0.8s">🦋</div>
+  <div class="flower" style="left:52%;animation-delay:0.4s">🌼</div>
+  <div class="flower" style="left:62%;animation-delay:1s">🌷</div>
+  <div class="flower" style="left:72%;animation-delay:0.1s">🌸</div>
+  <div class="flower" style="left:82%;animation-delay:0.7s">🌺</div>
+  <div class="flower" style="left:92%;animation-delay:0.5s">🌼</div>
 </div>
 
+<script src="js/main.js"></script>
 <script>
-/* FLOATIES */
-(function() {
-  var items = ["🌸","💕","✨","🌷","💖","⭐","🦋","🎂","💫","🎀","🥳","🎈","🎊","💗"];
-  var f = document.getElementById("floaties");
-  for (var i = 0; i < 22; i++) {
-    var el = document.createElement("div"); el.className = "floaty";
-    el.textContent = items[Math.floor(Math.random() * items.length)];
-    el.style.left = (Math.random() * 100) + "%";
-    el.style.animationDuration = (7 + Math.random() * 9) + "s";
-    el.style.animationDelay = (Math.random() * 10) + "s";
-    el.style.fontSize = (1 + Math.random() * 1.8) + "rem";
-    f.appendChild(el);
-  }
-}());
-/* CONFETTI */
-(function() {
-  var colors = ["#ff9eb5","#c084fc","#fde68a","#86efac","#7dd3fc","#f9a8d4","#a78bfa"];
-  var c = document.getElementById("confettiContainer");
-  for (var i = 0; i < 40; i++) {
-    var p = document.createElement("div"); p.className = "confetti-piece";
-    p.style.left = (Math.random() * 100) + "%";
-    p.style.background = colors[Math.floor(Math.random() * colors.length)];
-    p.style.animationDuration = (4 + Math.random() * 6) + "s";
-    p.style.animationDelay = (Math.random() * 8) + "s";
-    p.style.width = (6 + Math.random() * 8) + "px";
-    p.style.height = (6 + Math.random() * 8) + "px";
-    p.style.borderRadius = Math.random() > 0.5 ? "50%" : "2px";
-    c.appendChild(p);
-  }
-}());
+document.addEventListener("DOMContentLoaded", function() {
+  initFloaties(["🌸","💕","✨","🌷","💖","⭐","🦋","🎂","💫","🎀","🥳","🎈","🎊","💗"]);
+  initConfetti();
+  initDots(4, 1);
+});
 </script>
-
 </body>
 </html>
