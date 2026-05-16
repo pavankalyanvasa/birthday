@@ -6,6 +6,31 @@
 <title>Our Story 💕</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<style>
+/* video hover autoplay */
+.mem-video video { cursor: pointer; }
+
+/* finale teaser button */
+.teaser-wrap { text-align:center; margin-top:48px; padding-bottom:48px; }
+.teaser-card {
+  display:inline-block;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(16px);
+  border-radius:28px;
+  border:2px solid rgba(255,182,203,0.45);
+  padding:32px 36px 28px;
+  max-width:420px; width:90%;
+  box-shadow:0 12px 50px rgba(192,100,200,0.18);
+  animation:cardPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.teaser-emoji { font-size:2.6rem; display:block; margin-bottom:8px; animation:bounce 2s ease-in-out infinite; }
+.teaser-title { font-family:'Pacifico',cursive; font-size:1.2rem; color:#5b2d6e; margin-bottom:8px; }
+.teaser-sub { font-size:0.88rem; color:#9d6aaa; font-weight:700; line-height:1.7; margin-bottom:20px; }
+.teaser-rxn { background:linear-gradient(135deg,#fff0f5,#f3e8ff); border:2px solid rgba(192,132,252,0.3); border-radius:16px; padding:12px 16px; margin:0 0 16px; font-size:0.9rem; color:#5b2d6e; font-weight:700; line-height:1.7; display:none; animation:popIn 0.4s cubic-bezier(0.34,1.56,0.64,1) both; }
+.teaser-rxn.show { display:block; }
+.btn-teaser { display:inline-block; background:linear-gradient(135deg,#ff9eb5,#c084fc); color:#fff; border:none; border-radius:50px; padding:14px 36px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:800; cursor:pointer; box-shadow:0 8px 28px rgba(192,100,200,0.4); transition:transform 0.2s,box-shadow 0.2s; }
+.btn-teaser:hover { transform:translateY(-3px) scale(1.04); box-shadow:0 14px 40px rgba(192,100,200,0.5); }
+</style>
 </head>
 <body>
 
@@ -20,7 +45,7 @@
   <div class="page-header">
     <span class="icon-big">📖</span>
     <h1 class="page-title">Our Story</h1>
-    <p class="sub-text">8 years. Endless memories. One big love. 💕<br>Photos are black and white — hover to see them in colour 🎨</p>
+    <p class="sub-text">8 years. Endless memories. One big love. 💕</p>
   </div>
 
   <div class="timeline">
@@ -28,12 +53,12 @@
     <!-- MEMORY 1 -->
     <div class="memory" data-emoji="🎬">
       <div class="mem-card">
-        <p class="label-text">Chapter 01 · Nov 2017</p>
+        <p class="label-text">Chapter 01 · The First Day of NEET</p>
         <h3 class="mem-title">The Day We Met In Person</h3>
         <div class="mem-photo">
           <img src="images/photo1.jpg" alt="The day we met">
         </div>
-        <p class="mem-story">You came right in the middle of the Hello movie and you were NOT letting me take pictures 😤 I had literally skipped college to watch Nuvvu Naku Nachav or Nuvve Nuvve on TV since mom and dad were away. And then you walked in. Best distraction of my life. 🫠</p>
+        <p class="mem-story">You came right in the middle of the Hello movie and you were NOT letting me take pictures 😤 I had literally skipped college to watch Nuvvu Naku Nachav or Nuvve Nuvve on TV since mom and dad were away. And then you walked in. Best distraction of my entire life. 🫠</p>
         <span class="mem-tag">📍 The beginning of everything</span>
       </div>
     </div>
@@ -42,11 +67,11 @@
     <div class="memory" data-emoji="🤫">
       <div class="mem-card">
         <p class="label-text">Chapter 02</p>
-        <h3 class="mem-title">The Secret Selfie at Akka Wedding</h3>
+        <h3 class="mem-title">The Secret Selfie at Vijaya Akka Wedding</h3>
         <div class="mem-photo">
-          <img src="images/photo2.jpg" alt="Akka wedding selfie">
+          <img src="images/photo2.jpg" alt="Vijaya wedding selfie">
         </div>
-        <p class="mem-story">The most tensed selfie ever taken 😅 Your uncle came and SAW us and my heart nearly stopped. I wore that black shirt you always wanted to see me in — bought it for 2000 rupees from Spykar at Tipsy Topsy. All for you. Every rupee worth it. 🖤</p>
+        <p class="mem-story">The most tensed selfie ever taken 😅 Your babbai came and SAW us and my heart nearly stopped!! I wore that black shirt you always wanted to see me in — bought it for 2000 rupees from Spykar at Tipsy Topsy. All for you. Every single rupee worth it. 🖤</p>
         <span class="mem-tag">🖤 You asked for black. I delivered.</span>
       </div>
     </div>
@@ -55,12 +80,12 @@
     <div class="memory" data-emoji="🏠">
       <div class="mem-card">
         <p class="label-text">Chapter 03</p>
-        <h3 class="mem-title">First Time at My Home</h3>
+        <h3 class="mem-title">First Time at My Home 🥺</h3>
         <div class="mem-photo">
           <img src="images/photo3.jpg" alt="First time at home">
         </div>
-        <p class="mem-story">You came straight from college, walked into my room, looking so innocent and cute 🥺 And there I was looking like a complete rowdy 😮‍💨 Still one of my favourite memories. You in my space for the very first time. Everything felt different after that.</p>
-        <span class="mem-tag">🏠 First visit. Forever remembered.</span>
+        <p class="mem-story">I brought you straight to my home that day when no one else was there. Look how cute you are 🥺 And there I was looking like a complete rowdy 😮‍💨 Still one of my all-time favourite memories. Everything felt different after that day.</p>
+        <span class="mem-tag">🏠 Just us. Nobody else.</span>
       </div>
     </div>
 
@@ -83,7 +108,7 @@
         <p class="label-text">Chapter 05</p>
         <h3 class="mem-title">The Airport Goodbye 😭</h3>
         <div class="mem-video">
-          <video src="images/video1.mp4" controls style="width:100%;display:block;border-radius:14px"></video>
+          <video id="airportVideo" src="images/video1.mp4" style="width:100%;display:block;border-radius:14px" playsinline></video>
         </div>
         <p class="mem-story">I was leaving to UK. You came to see me off. As you walked away, I was crying. You were crying. Then mavayya came and I started recording... and I just KNEW you would turn back. And you did. 🎬 That single moment? Pure cinema. It lives in my heart forever and always.</p>
         <span class="mem-tag">✈️ You turned back. I will never forget.</span>
@@ -111,8 +136,8 @@
         <div class="mem-photo">
           <img src="images/photo7.jpg" alt="Long hair selfie WhatsApp DP">
         </div>
-        <p class="mem-story">I had grown my hair long and you were absolutely obsessed — you badly wanted to see it and touch it in person before I cut it. So the moment I got the chance, I went straight to you. No detours. Took a selfie, cropped you out, made it my WhatsApp DP. Nobody knows you are right there in your cute pink frock. 🤫 Still my favourite picture.</p>
-        <span class="mem-tag">💗 Hidden in plain sight. Always together.</span>
+        <p class="mem-story">I had grown my hair long and you were absolutely obsessed — you badly wanted to see it and touch it in person before I cut it. So the moment I got the chance, I went straight to you. No detours. Took a selfie, cropped you out, made it my WhatsApp DP. Even today it is still my DP. 🤫 Nobody knows you are right there beside me in your cute pink frock.</p>
+        <span class="mem-tag">💗 Still my DP. Still my favourite.</span>
       </div>
     </div>
 
@@ -124,17 +149,22 @@
         <div class="mem-photo">
           <img src="images/photo8.jpg" alt="Wedding photo">
         </div>
-        <p class="mem-story">Both families said yes. The universe said yes. We always said yes. From childhood relatives to mardhal to 8 years of hiding, crying, crossing oceans — to THIS. Married. Official. Forever. I am in the USA waiting for you right now. You are the sole reason I got this done. Come soon, please. 🛫</p>
-        <span class="mem-tag">👑 Mrs. Bobby. Officially. Always.</span>
+        <p class="mem-story">Both families said yes. The universe said yes. We always said yes. 💍 From being relatives as kids, to me teasing you nonstop, to mardhal, to 8 beautiful years — to THIS. I would do it all again. Every single bit of it. Only for you. Thank you for coming into my life, Bujjamma. You are my everything. 🥹💗</p>
+        <span class="mem-tag">👑 Mrs. Bobby. Officially. Always. Forever.</span>
       </div>
     </div>
 
   </div><!-- end timeline -->
 
-  <div style="text-align:center;margin-top:40px;padding-bottom:40px">
-    <button class="btn-celebrate" onclick="window.location.href='finale.html'">
-      Read a letter from Bobby 💌
-    </button>
+  <!-- CUTE TEASER TO FINALE -->
+  <div class="teaser-wrap">
+    <div class="teaser-card" id="teaserCard">
+      <span class="teaser-emoji">💌</span>
+      <h3 class="teaser-title">A letter from your husband is waiting...</h3>
+      <p class="teaser-sub">But first — send me one selfie right now! 📸<br>Then you can open it! 😏💕</p>
+      <div class="teaser-rxn" id="teaserRxn"></div>
+      <button class="btn-teaser" id="teaserBtn" onclick="teaserClick()">I sent it!! Open the letter! 💌</button>
+    </div>
   </div>
 
 </div><!-- end page-content -->
@@ -145,7 +175,42 @@ document.addEventListener("DOMContentLoaded", function() {
   initFloaties(["🌸","💕","✨","🌷","💖","⭐","🦋","🎂","💫","🎀","💍","🥰"]);
   initDots(4, 2);
   initMemoryObserver();
+
+  /* video hover autoplay */
+  var vid = document.getElementById("airportVideo");
+  if (vid) {
+    vid.addEventListener("mouseenter", function() { vid.play(); });
+    vid.addEventListener("mouseleave", function() { vid.pause(); });
+    /* mobile tap to play/pause */
+    vid.addEventListener("touchstart", function(e) {
+      e.preventDefault();
+      if (vid.paused) { vid.play(); } else { vid.pause(); }
+    });
+  }
 });
+
+/* TEASER clicks before opening letter */
+var teaserCount = 0;
+var teaserReplies = [
+  ["Did you actually send it?? 👀", "Bobby is checking WhatsApp right now... okay fine maybe not BUT send it for real!! 😂 Click again! 📸"],
+  ["Still waiting!! 😤💕", "One selfie. Just ONE. You look beautiful today I know it. Send it and THEN you can open the letter!! 🥺"],
+  ["Okay okay OKAY 😭😂", "You are so stubborn!! Fine!! But Bobby knows you look gorgeous right now. Go on, open the letter!! 💌💗"]
+];
+
+function teaserClick() {
+  if (teaserCount < 3) {
+    var r = teaserReplies[teaserCount];
+    var rxn = document.getElementById("teaserRxn");
+    rxn.innerHTML = "<strong>" + r[0] + "</strong><br>" + r[1];
+    rxn.classList.add("show");
+    teaserCount++;
+    var btn = document.getElementById("teaserBtn");
+    var labels = ["I really sent it this time!! 🤞", "Okay I promise now!! 😂💕", "FINE opening it!! 💌"];
+    btn.textContent = labels[Math.min(teaserCount - 1, 2)];
+  } else {
+    window.location.href = "finale.html";
+  }
+}
 </script>
 </body>
 </html>
